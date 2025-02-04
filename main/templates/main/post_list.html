@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <div class="post-container">
+        <a href="{% url 'add_post' %}">Добавить новый пост</a>
+    </div>
+    <div class="posts-container"><h2>Посты: </h2></div>
+    {% for post in posts %}
+        <a href="{{ post.id }}/">
+            <div class="post">{{ post.title }}:
+                <p>{{post.content}}</p>
+            </div>
+        </a>
+    {% endfor %}
+{% endblock %}
