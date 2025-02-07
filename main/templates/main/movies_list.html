@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Фильмы{% endblock %}
+
+{% block content %}
+    <a href="/">Назад к списку постов</a>
+    <div class="posts-container"><h2>Фильмы сегодня в прокате в Минске: </h2></div>
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+                <p class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div>
+        <!-- Форма для обновления фильмов -->
+        <form method="post" action="{% url 'update_movies' %}">
+            {% csrf_token %}
+            <button type="submit">Обновить фильмы</button>
+        </form>
+    </div>
+
+    <div class="movie-grid">
+        {% for movie in movies %}
+            <div class="movie-card">
+                <img src="{{ movie.image_url }}" alt="{{ movie.name }}">
+                <h3>{{ movie.name }}</h3>
+                <p class="price">{{ movie.price }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+

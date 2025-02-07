@@ -1,8 +1,13 @@
 {% extends 'main/base.html' %}
 
+{% block title %}
+Блог
+{% endblock %}
+
 {% block content %}
     <div class="post-container">
-        <a href="{% url 'add_post' %}">Добавить новый пост</a>
+        <p><a href="movies/">Что можно посмотреть в кино?</a></p>
+        <p><a href="{% url 'add_post' %}">Добавить новый пост</a></p>
     </div>
     <div class="posts-container"><h2>Посты: </h2></div>
     {% for post in posts %}

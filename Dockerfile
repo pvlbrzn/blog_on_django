@@ -13,7 +13,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app/
 
 # Указываем переменную окружения для Django
-ENV PYTHONUNBUFFERED 1
+ENV DATABASE_NAME=pavel
+ENV DATABASE_USER=pavel
+ENV DATABASE_PASSWORD=pavel
 
 # Выполняем миграции и создаем суперпользователя
 CMD ["sh", "-c", "python manage.py migrate && python manage.py loaddata test_data.json && python manage.py runserver 0.0.0.0:8000"]
