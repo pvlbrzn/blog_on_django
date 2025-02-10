@@ -1,10 +1,16 @@
 import requests
 from bs4 import BeautifulSoup as Bs
 from .models import Movie
+import time
 
 
 def parse_movies():
-    url = 'https://bycard.by/afisha/minsk/kino?btn_type=today&time=1738875600'
+    # Удаляем все записи перед обновлением
+    Movie.objects.all().delete()
+
+    # Парсим фильмы на сегодня
+    timestamp = int(time.time())  # На сайте динамическая ссылка с датой и временем
+    url = f'https://bycard.by/afisha/minsk/kino?btn_type=today&time={timestamp}'
     user_agent = (
         "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
         "(KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"
@@ -37,9 +43,9 @@ def parse_movies():
                 name=name,
                 defaults={"price": price, "image_url": image}
             )
-            if created:
-                print(f"✅ Добавлен новый фильм: {name} - {price} - {image}")
-            else:
-                print(f"⚠️ Фильм уже существует: {name}")
+            # if created:
+            #     print(f"✅ Добавлен новый фильм: {name} - {price} - {image}")
+            # else:
+            #     print(f"⚠️ Фильм уже существует: {name}")
         else:
             print(f"⚠️ Пропущен фильм (отсутствуют данные): {item}")
