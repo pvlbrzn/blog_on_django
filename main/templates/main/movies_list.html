@@ -22,11 +22,13 @@
 
     <div class="movie-grid">
         {% for movie in movies %}
-            <div class="movie-card">
-                <img src="{{ movie.image_url }}" alt="{{ movie.name }}">
-                <h3>{{ movie.name }}</h3>
-                <p class="price">{{ movie.price }}</p>
-            </div>
+            <a href="{{movie.id}}/">
+                <div class="movie-card">
+                    <img src="{{ movie.image_url }}" alt="{{ movie.name }}">
+                    <h3>{{ movie.name }}</h3>
+                    <p class="price">{{ movie.price }}</p>
+                </div>
+            </a>
         {% endfor %}
     </div>
 {% endblock %}

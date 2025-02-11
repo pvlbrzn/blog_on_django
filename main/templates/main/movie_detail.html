@@ -1,0 +1,11 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <div class="post-container">
+        <h2>{{ movie.name }}</h2>
+        <img src="{{ movie.image_url }}" alt="{{ movie.name }}">
+        <p>Стоимость билета: {{movie.price}}</p>
+        <a href="{% url 'movies_list' %}">Назад к списку постов</a>
+    </div>
+
+{% endblock %}

@@ -3,7 +3,6 @@ from .models import Post, Movie
 from .forms import PostForm
 from django.contrib import messages
 from .services import parse_movies
-from django.http import JsonResponse
 
 
 def post_list(request):
@@ -42,3 +41,8 @@ def update_movies(request):
             messages.error(request, f"Ошибка при обновлении фильмов: {e}")  # Сообщение об ошибке
 
     return redirect('movies_list')  # Перенаправляем на страницу с фильмами
+
+
+def movie_detail(request, movie_id):
+    movie = get_object_or_404(Movie, id=movie_id)
+    return render(request, 'main/movie_detail.html', {'movie': movie})
