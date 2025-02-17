@@ -1,8 +1,8 @@
 import csv
 from django.contrib import admin
 from django.http import HttpResponse
+from django.utils.html import format_html
 from .models import Post, Movie
-
 
 admin.site.register(Post)
 
@@ -28,10 +28,21 @@ def export_movies_csv(modeladmin, request, queryset):
 
 
 class MovieAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price')
+    list_display = ('name', 'styled_price')  # Заменяем price на styled_price
     search_fields = ('name', 'price')
     list_filter = ('price',)
     actions = [export_movies_csv]
+
+    class Media:
+        css = {
+            "all": ("admin/css/admin_custom.css",)
+        }
+
+    # Делаем цену стилизованной
+    def styled_price(self, obj):
+        return format_html('<span style="color: green; font-weight: bold;">{} руб.</span>', obj.price)
+
+    styled_price.short_description = "Цена"
 
 
 admin.site.register(Movie, MovieAdmin)

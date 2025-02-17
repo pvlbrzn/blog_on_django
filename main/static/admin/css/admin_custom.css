@@ -1,0 +1,12 @@
+/* Пример кастомных стилей */
+#header {
+    background-color: #777 !important; /* Изменяем цвет шапки */
+}
+
+.module h2 {
+    color: #e74c3c; /* Заголовки модулей */
+}
+
+.submit-row input {
+    background-color: #27ae60 !important; /* Кнопка "Сохранить" */
+}
