@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для контейнера, в котором расположены все посты */
+.posts-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Стили для каждого отдельного поста */
+.post {
+  background-color: #ffffff;  /* Белый фон для поста */
+  border: 1px solid #ddd;     /* Легкая серая граница */
+  border-radius: 10px;        /* Скругленные углы */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Легкая тень */
+  padding: 20px;              /* Отступы внутри поста */
+  width: 760px;               /* Фиксированная ширина поста */
+  transition: transform 0.3s, box-shadow 0.3s; /* Плавное изменение при наведении */
+}
+
+/* Эффект при наведении на пост */
+.post:hover {
+  transform: translateY(-10px);   /* Немного поднимаем пост */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);  /* Увеличиваем тень */
+}
+
+/* Заголовок поста */
+.post h2 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Текст поста */
+.post p {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;  /* Убираем подчеркивание ссылки по умолчанию */
+}
+
+a:hover {
+  text-decoration: none;  /* Убираем подчеркивание при наведении */
+}
+
+/* Стили для сетки вывода фильмов */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.movie-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.movie-card img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.movie-card h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.movie-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.movie-card .price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.movie-card .time {
+    font-size: 14px;
+    color: #888;
+}

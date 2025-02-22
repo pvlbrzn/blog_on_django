@@ -1,0 +1,28 @@
+/* Меняем фон панели */
+#header {
+    background-color: #999 !important;
+    color: #f8f9fa !important;
+}
+
+/* Меняем цвет заголовков */
+.module h2 {
+    color: #007bff !important;
+    font-size: 18px;
+}
+
+/* Делаем кнопки более красивыми */
+.button, input[type="submit"], .submit-row input {
+    background: linear-gradient(135deg, #28a745, #218838) !important;
+    color: white !important;
+    border-radius: 5px;
+    padding: 8px 12px;
+}
+
+/* Улучшаем таблицу списка фильмов */
+#result_list tbody tr {
+    background-color: #f9f9f9;
+}
+
+#result_list tbody tr:nth-child(even) {
+    background-color: #e9ecef;
+}

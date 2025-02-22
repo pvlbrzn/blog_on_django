@@ -7,6 +7,7 @@
 {% block content %}
     <div class="post-container">
         <p><a href="movies/">Что можно посмотреть в кино?</a></p>
+        <p><a href="{% url 'movies_list' %}">Перейти в кинотеатр</a></p>
         <p><a href="{% url 'add_post' %}">Добавить новый пост</a></p>
     </div>
     <div class="posts-container"><h2>Посты: </h2></div>

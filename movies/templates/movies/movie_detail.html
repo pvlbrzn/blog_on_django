@@ -1,0 +1,16 @@
+{% extends 'movies/base.html' %}
+{% block title %}{{ movie.title }}{% endblock %}
+{% block content %}
+<h2>{{ movie.title }}</h2>
+<img src="{{ movie.image.url }}" alt="{{ movie.title }}">
+<p>{{ movie.description }}</p>
+<p><strong>Режиссер:</strong> {{ movie.director.name }}</p>
+<p><strong>Жанры:</strong> {% for genre in movie.genres.all %}{{ genre.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+<p><strong>Актеры:</strong></p>
+<ul>
+    {% for actor in movie.actors.all %}
+    <li><img src="{{ actor.image.url }}" alt="{{ actor.name }}" width="50"> {{ actor.name }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'session_list' %}" class="btn">Посмотреть сеансы</a>
+{% endblock %}

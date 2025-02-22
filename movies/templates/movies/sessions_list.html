@@ -1,0 +1,29 @@
+{% extends 'movies/base.html' %}
+{% block title %}Сеансы{% endblock %}
+{% block content %}
+<h2>Сеансы</h2>
+<table>
+    <tr>
+        <th>Фильм</th>
+        <th>Дата и время</th>
+        <th>Цена</th>
+        <th>Доступные места</th>
+        <th>Действие</th>
+    </tr>
+    {% for session in sessions %}
+    <tr>
+        <td>{{ session.movie.title }}</td>
+        <td>{{ session.datetime }}</td>
+        <td>{{ session.price }} руб.</td>
+        <td>{{ session.available_seats }}</td>
+        <td>
+            {% if session.available_seats > 0 %}
+            <a href="{% url 'book_ticket' session.id %}" class="btn">Забронировать</a>
+            {% else %}
+            <span>Мест нет</span>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

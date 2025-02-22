@@ -1,0 +1,7 @@
+{% extends 'movies/base.html' %}
+{% block title %}Успех{% endblock %}
+{% block content %}
+<h2>Бронирование успешно!</h2>
+<p>Ваш билет забронирован. Спасибо!</p>
+<a href="{% url 'movies_list' %}" class="btn">Вернуться к фильмам</a>
+{% endblock %}
