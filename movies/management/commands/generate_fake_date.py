@@ -27,7 +27,7 @@ class Command(BaseCommand):
             )
 
         # Создание фейковых жанров
-        genres = ['Action', 'Comedy', 'Drama', 'Horror', 'Romance', 'Sci-Fi', 'Fantasy']
+        genres = ['Боевик', 'Комедия', 'Драма', 'Ужасы', 'Мелодрама', 'Фантастика', 'Фэнтази']
         for genre_name in genres:
             Genre.objects.create(name=genre_name)
 
