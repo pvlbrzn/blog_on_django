@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pavel',
-        'USER': 'pavel',
-        'PASSWORD': 'pavel',
-        'HOST': '127.0.0.1',
+        'NAME': os.getenv('DATABASE_NAME', 'pavel'),
+        'USER': os.getenv('DATABASE_USER', 'pavel'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD', 'pavel'),
+        'HOST': 'db',  # 🚨 самое главное: имя сервиса, а не localhost!
         'PORT': '5432',
     }
 }

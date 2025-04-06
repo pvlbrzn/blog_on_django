@@ -18,4 +18,4 @@ ENV DATABASE_USER=pavel
 ENV DATABASE_PASSWORD=pavel
 
 # Выполняем миграции и создаем суперпользователя
-CMD ["sh", "-c", "python manage.py migrate && python manage.py loaddata test_data.json && python manage.py runserver 0.0.0.0:8000"]
+CMD ["sh", "-c", "python manage.py migrate && python manage.py loaddata test_data.json && python manage.py runserver 127.0.0.1:8000"]
